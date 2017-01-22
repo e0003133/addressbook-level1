@@ -159,6 +159,13 @@ public class AddressBook {
      * If the first non-whitespace character in a user's input line is this, that line will be ignored.
      */
     private static final char INPUT_COMMENT_MARKER = '#';
+    
+    /**
+     * Symbolic constants for the process main method arguments
+     */
+    private static final int TOO_MANY_ARGS = 2;
+    private static final int FILE_GIVEN = 1;
+    private static final int NO_FILE_SPECIFIED = 0;
 
     /*
      * This variable is declared for the whole class (instead of declaring it
@@ -257,16 +264,16 @@ public class AddressBook {
      * @param args full program arguments passed to application main method
      */
     private static void processProgramArgs(String[] args) {
-        if (args.length >= 2) {
+        if (args.length >= TOO_MANY_ARGS) {
             showToUser(MESSAGE_INVALID_PROGRAM_ARGS);
             exitProgram();
         }
 
-        if (args.length == 1) {
+        if (args.length == FILE_GIVEN) {
             setupGivenFileForStorage(args[0]);
         }
 
-        if(args.length == 0) {
+        if(args.length == NO_FILE_SPECIFIED) {
             setupDefaultFileForStorage();
         }
     }
