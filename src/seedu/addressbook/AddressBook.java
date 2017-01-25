@@ -273,7 +273,7 @@ public class AddressBook {
             setupGivenFileForStorage(args[0]);
         }
 
-        if(args.length == NO_FILE_SPECIFIED) {
+        if (args.length == NO_FILE_SPECIFIED) {
             setupDefaultFileForStorage();
         }
     }
